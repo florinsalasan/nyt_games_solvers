@@ -11,3 +11,7 @@ and throwing them into a Trie tree. Then serializing it so that it doesn't have 
 be redone everytime, and then the input to the solver will be the 7 letters from 
 the daily puzzle. Then it's a matter traversing through the tree checking for each letter 
 over and over again, collecting words along the way. Time to build it
+
+### Resources used:
+
+- dwyl's [english-words](https://github.com/dwyl/english-words) repository
