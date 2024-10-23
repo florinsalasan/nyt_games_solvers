@@ -1,4 +1,5 @@
 words_alpha.txt
 test_word_list.txt
 trie.json
+trie.pkl
 __pycache__/

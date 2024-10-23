@@ -1,7 +1,7 @@
 # NYT Games Solver(s)
 
-I'm tired of not finding the panagram in the Spelling Bee game so I wanted
-to write a script to find all possible panagrams for me. Still thinking about
+I'm tired of not finding the pangram in the Spelling Bee game so I wanted
+to write a script to find all possible pangrams for me. Still thinking about
 whether or not I want to work on other games afterwards.
 
 ## Spelling Bee Solver
@@ -23,7 +23,7 @@ python spelling_bee.py {7 daily letters}
 When inputting the 7 letters, make the mandatory letter the first. For example if
 the 7 letters in alphabetical order are 'abcdefg' and the necessary letter is 'd',
 the parameter should be passed in as 'd{remaining 6 letters in any order}'. The script
-will return a list of panagrams that can be made from the 7 letters, some may not 
+will return a list of pangrams that can be made from the 7 letters, some may not 
 be accepted by the NYT game as this is a list that contains some extremely obscure words.
 Feel free to replace the list with other ones.
 
@@ -44,7 +44,8 @@ The generated Trie is around 500-600 MB in size, not meant to be used on devices
 small amounts of storage space. 
 
 ### TODO:
-- [ ] Look into other methods of serializing the Trie like protobuf or messagepack
+- [x] Look into other methods of serializing the Trie like protobuf or messagepack -> Changed to pickling, now takes ~1.5s for spelling_bee instead of ~9 that json was taking to rebuild the trie
 - [ ] Add tests?
-- [ ] Add method to insert words that end in newline character, that way data doesn't need to be cleaned up
+- [ ] Reword insert method to insert words that end in non-alphabet characters like newline or '^M'
+- [ ] Change the output to be better formatted, possibly return a dict of words based on length and special category for pangrams
 - [ ] Add other games
