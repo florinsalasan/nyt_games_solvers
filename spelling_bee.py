@@ -19,14 +19,8 @@ def find_spelling_bee(trie, letters):
     must_include_letter = letters[0]
     words = []
     for i in range(len(letters)):
-        start_node = None
-        for node in trie.head:
-            if letters[i] == node.char:
-                start_node = node
+        start_node = trie.head.get(letters[i])
 
-        # Should mean that a starting node doesn't exist. This should never
-        # happen for solving the spelling bee. since I'm building a Trie
-        # that contains 360k+ english words
         if start_node is None:
             continue
 
@@ -35,6 +29,8 @@ def find_spelling_bee(trie, letters):
         endings = find_spelling_bee_helper(trie, start_node, [], "", letters)
 
         for ending in endings:
+            # if it's the first letter being checked automatically accept the
+            # word as it contains the mandatory letter, otherwise check for it
             if i == 0 or must_include_letter in ending:
                 words.append(ending)
 
@@ -65,9 +61,10 @@ def find_spelling_bee_helper(trie, curr_node, endings, curr_string, letters):
 
     new_endings = []
     for i in range(len(letters)):
+        child_node = curr_node.children.get(letters[i])
         recursed_endings = find_spelling_bee_helper(
                 trie,
-                trie.find_letter_node_in_children(letters[i], curr_node),
+                child_node,
                 endings,
                 curr_string,
                 letters
