@@ -107,7 +107,6 @@ class Trie:
         curr_node.children.append(new_node)
         self.insert_helper(remaining_data[1:], new_node)
 
-
     def find_letter_node_in_children(self, char, node):
         # if either char or the current node is not defined, return early
         if char is None or node is None:
