@@ -37,6 +37,7 @@ into the Trie structure otherwise I found that it would mark the end of a word i
 ### Resources used:
 
 - dwyl's [english-words](https://github.com/dwyl/english-words) repository
+- dolph's [dictionary](https://github.com/dolph/dictionary) repository for a more concentrated word list
 - ThePrimeagen's course on [data structures and algorithms](https://frontendmasters.com/courses/algorithms/) on FrontendMasters
 
 ## WARNING:

@@ -1,5 +1,7 @@
 words_alpha.txt
+common_words.txt
 test_word_list.txt
 trie.json
 trie.pkl
+small_trie.pkl
 __pycache__/
