@@ -83,7 +83,11 @@ if __name__ == '__main__':
     start_time = time.time()
 
     # trie_file_name = 'trie.json'
-    trie_file_name = 'trie.pkl'
+    # trie_file_name = 'trie.pkl'
+    if len(sys.argv) > 2:
+        trie_file_name = sys.argv[2]
+    else:
+        trie_file_name = 'small_trie.pkl'
     if os.path.exists(trie_file_name):
         print('loading existing Trie')
         # trie = load_trie(trie_file_name).head
@@ -92,7 +96,10 @@ if __name__ == '__main__':
         print(words)
     else:
         print("generating new trie from english word list")
-        trie = trie_generator('words_alpha.txt')
+        if not trie_file_name == 'small_trie.pkl':
+            trie = trie_generator('words_alpha.txt')
+        else:
+            trie = trie_generator('common_words.txt')
         # save_trie(trie, trie_file_name)
         save_trie_pickle(trie, trie_file_name)
         words = spelling_bee_solver(trie, sys.argv[1])

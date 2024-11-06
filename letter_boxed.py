@@ -88,16 +88,20 @@ def find_letter_boxed_helper(trie, curr_node, word_dict, curr_string,
     return
 
 
-def find_all_word_chains(word_dict, letters, max_words, max_solutions=100):
+def find_all_word_chains(word_dict, letters, max_words, max_solutions=10):
     solutions = []
+    starter_words = []
 
     for words_in_solution in range(1, max_words + 1):
         def find_chains(current_chain, covered_letters, length):
             #debug_print(current_chain)
+            if current_chain[0] in starter_words:
+                return []
             if (length > words_in_solution):
                 return []
             if len(covered_letters) == len(letters):
                 solutions.append(current_chain)
+                starter_words.append(current_chain[0])
                 return []
             if len(solutions) >= max_solutions:
                 return []
